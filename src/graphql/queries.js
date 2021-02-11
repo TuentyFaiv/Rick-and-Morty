@@ -83,7 +83,7 @@ export const CHARACTERS = gql`
 
 export const CHARACTERS_BY_IDS = gql`
   query CharacterByIds($ids: [ID!]!) {
-    charactersByIds(ids: $ids) {
+    characters: charactersByIds(ids: $ids) {
       id
       name
       status
@@ -157,7 +157,7 @@ export const LOCATIONS = gql`
 
 export const LOCATIONS_BY_IDS = gql`
   query LocationByIds($ids: [ID!]!) {
-    locationsByIds(ids: $ids) {
+    locations: locationsByIds(ids: $ids) {
       id
       name
       type
@@ -209,7 +209,7 @@ export const EPISODES = gql`
 `;
 export const EPISODES_BY_IDS = gql`
   query EpisodesByIds($ids: [ID!]!) {
-    episodesByIds(ids: $ids) {
+    episodes: episodesByIds(ids: $ids) {
       id
       name
       air_date
