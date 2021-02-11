@@ -2,6 +2,9 @@ import React, { useEffect } from 'react';
 import { useLazyQuery } from '@apollo/client';
 import { CHARACTERS_BY_IDS, LOCATIONS_BY_IDS, EPISODES_BY_IDS } from '@queries';
 
+import '@styles/pages/home.scss';
+import CardHome from '@components/CardHome';
+
 const Home = () => {
   const [characters, { loading: loadingC, data: data_characters }] = useLazyQuery(CHARACTERS_BY_IDS);
   const [locations, { loading: loadingL, data: data_locations }] = useLazyQuery(LOCATIONS_BY_IDS);
@@ -16,32 +19,41 @@ const Home = () => {
 
   return (
     <>
-      <section>
-        <h2>Characters</h2>
-        {loadingC && <h3>Loading...</h3>}
-        {
-          data_characters?.characters?.map(({ name }) => (
-            <p>{name}</p>
-          ))
-        }
+      <section className="hero">
+        <h1 className="hero__title">Rick and Morty</h1>
       </section>
-      <section>
-        <h2>Locations</h2>
-        {loadingL && <h3>Loading...</h3>}
-        {
-          data_locations?.locations?.map(({ name }) => (
-            <p>{name}</p>
-          ))
-        }
+      <section className="section">
+        <h2 className="section__title">Characters</h2>
+        <div className="section__content ptb-6">
+          {loadingC && <h3>Loading...</h3>}
+          {
+            data_characters?.characters?.map((character) => (
+              <CardHome key={character.id} {...character} type="character" />
+            ))
+          }
+        </div>
       </section>
-      <section>
-        <h2>Episodes</h2>
-        {loadingE && <h3>Loading...</h3>}
-        {
-          data_episodes?.episodes?.map(({ name }) => (
-            <p>{name}</p>
-          ))
-        }
+      <section className="section">
+        <h2 className="section__title">Locations</h2>
+        <div className="section__content">
+          {loadingL && <h3>Loading...</h3>}
+          {
+            data_locations?.locations?.map((location) => (
+              <CardHome key={location.id} {...location} type="location" />
+            ))
+          }
+        </div>
+      </section>
+      <section className="section">
+        <h2 className="section__title">Episodes</h2>
+        <div className="section__content">
+          {loadingE && <h3>Loading...</h3>}
+          {
+            data_episodes?.episodes?.map((episode) => (
+              <CardHome key={episode.id} {...episode} type="episode" />
+            ))
+          }
+        </div>
       </section>
     </>
   );

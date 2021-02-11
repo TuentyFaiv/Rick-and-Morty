@@ -1,6 +1,12 @@
 header {
+  position: absolute;
   width: 100%;
-  padding: 30px 15px;
+  height: 8.5rem;
+  padding: 3rem 1.5rem;
+  font-size: 2rem;
+  top: 0;
+  left: 0;
+  right: 0;
   nav ul {
     display: flex;
     align-items: center;
@@ -8,12 +14,12 @@ header {
     list-style: none;
     li {
       a {
-        padding: .25rem 0;
+        padding: .3rem 0;
         color: black;
-        border-bottom: 3px solid transparent;
+        border-bottom: .3rem solid transparent;
         text-decoration: none;
         &:hover {
-          border-bottom: 3px solid black;
+          border-bottom: .3rem solid black;
         }
       }
     }
@@ -21,9 +27,9 @@ header {
 
   .active {
     color: #4dd0f0;
-    border-bottom: 3px solid #4dd0f0;
+    border-bottom: .3rem solid #4dd0f0;
     &:hover {
-      border-bottom: 3px solid #4dd0f0;
+      border-bottom: .3rem solid #4dd0f0;
     }
   }
 }
