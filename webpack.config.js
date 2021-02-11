@@ -26,6 +26,7 @@ module.exports = {
       '@containers': path.resolve(__dirname, 'src/containers'),
       '@context': path.resolve(__dirname, 'src/context'),
       '@pages': path.resolve(__dirname, 'src/pages'),
+      '@queries': path.resolve(__dirname, 'src/graphql/queries.js'),
     }
   },
   module: {
