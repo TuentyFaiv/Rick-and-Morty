@@ -1,18 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+
+import '@styles/containers/layout.scss';
+import Header from '@components/Header';
 
 const Layout = ({ children }) => (
   <>
-    <header>
-      <Link to="/">Home</Link>
-      <nav>
-        <ul>
-          <li><Link to="/characters">Characters</Link></li>
-          <li><Link to="/locations">Locations</Link></li>
-          <li><Link to="/episodes">Episodes</Link></li>
-        </ul>
-      </nav>
-    </header>
+    <Header />
     <main>{children}</main>
     <footer>Footer</footer>
   </>

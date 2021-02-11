@@ -1,0 +1,29 @@
+header {
+  width: 100%;
+  padding: 30px 15px;
+  nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    list-style: none;
+    li {
+      a {
+        padding: .25rem 0;
+        color: black;
+        border-bottom: 3px solid transparent;
+        text-decoration: none;
+        &:hover {
+          border-bottom: 3px solid black;
+        }
+      }
+    }
+  }
+
+  .active {
+    color: #4dd0f0;
+    border-bottom: 3px solid #4dd0f0;
+    &:hover {
+      border-bottom: 3px solid #4dd0f0;
+    }
+  }
+}
