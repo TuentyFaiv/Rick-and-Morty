@@ -20,13 +20,14 @@ module.exports = {
     contentBase: path.join(__dirname, 'public'),
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.jsx', '.scss'],
     alias: {
       '@components': path.resolve(__dirname, 'src/components'),
       '@containers': path.resolve(__dirname, 'src/containers'),
       '@context': path.resolve(__dirname, 'src/context'),
       '@pages': path.resolve(__dirname, 'src/pages'),
       '@queries': path.resolve(__dirname, 'src/graphql/queries.js'),
+      '@styles': path.resolve(__dirname, 'src/styles'),
     }
   },
   module: {
@@ -37,12 +38,11 @@ module.exports = {
         use: 'babel-loader',
       },
       {
-        test: /\.css$/,
+        test: /\.scss$/,
         use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-          },
+          'style-loader',
           'css-loader',
+          'sass-loader',
         ]
       },
       {
