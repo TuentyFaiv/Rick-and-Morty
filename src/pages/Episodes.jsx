@@ -65,6 +65,14 @@ const Episodes = () => {
           value={variables.filter.name}
           onChange={handleSearch}
         />
+        <input
+          type="text"
+          name="episode"
+          className="episodes__header-search"
+          placeholder="Search by episode"
+          value={variables.filter.episode}
+          onChange={handleSearch}
+        />
         <div className="episodes__prevandnext">
           <button type="button" onClick={handlePrev} disabled={data?.episodes.info?.prev ? false : true}>
             {`Prev page ${prevPage}`}
