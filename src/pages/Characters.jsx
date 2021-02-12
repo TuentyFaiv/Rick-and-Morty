@@ -88,6 +88,39 @@ const Characters = () => {
           value={variables.filter.name}
           onChange={handleSearchByName}
         />
+        <div className="speciesFilter">
+          <p className="speciesFilter__title">Species</p>
+          <label htmlFor="human">
+            <input type="radio" name="species" id="human" onChange={handleFilter} value="human" />
+            <p>Human</p>
+          </label>
+          <label htmlFor="humanoid">
+            <input type="radio" name="species" id="humanoid" onChange={handleFilter} value="humanoid" />
+            <p>Humanoid</p>
+          </label>
+          <label htmlFor="alien">
+            <input type="radio" name="species" id="alien" onChange={handleFilter} value="alien" />
+            <p>Alien</p>
+          </label>
+          <label htmlFor="animal">
+            <input type="radio" name="species" id="animal" onChange={handleFilter} value="animal" />
+            <p>Alien</p>
+          </label>
+          <label htmlFor="unknownSpecies">
+            <input type="radio" name="species" id="unknownSpecies" onChange={handleFilter} value="unknown" />
+            <p>Unknown</p>
+          </label>
+          <label htmlFor="withoutFilterSpecies">
+            <input
+              type="radio"
+              name="species"
+              id="withoutFilterSpecies"
+              onChange={handleDeleteFilter}
+              checked={variables.filter.species === '' ? true : false}
+            />
+            <p>Without filter</p>
+          </label>
+        </div>
         <div className="genderFilter">
           <p className="genderFilter__title">Gender</p>
           <label htmlFor="female">
@@ -102,15 +135,15 @@ const Characters = () => {
             <input type="radio" name="gender" id="genderless" onChange={handleFilter} value="genderless"/>
             <p>Genderless</p>
           </label>
-          <label htmlFor="unknown">
-            <input type="radio" name="gender" id="unknown" onChange={handleFilter} value="unknown"/>
+          <label htmlFor="unknownGender">
+            <input type="radio" name="gender" id="unknownGender" onChange={handleFilter} value="unknown"/>
             <p>Unknown</p>
           </label>
-          <label htmlFor="withoutFilter">
+          <label htmlFor="withoutFilterGender">
             <input
               type="radio"
               name="gender"
-              id="withoutFilter"
+              id="withoutFilterGender"
               onChange={handleDeleteFilter}
               checked={variables.filter.gender === '' ? true : false}
             />

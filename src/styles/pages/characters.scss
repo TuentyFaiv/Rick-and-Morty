@@ -78,6 +78,7 @@
     label {
       display: flex;
       height: 3rem;
+      margin: .5rem 1rem;
       padding: 1rem 1.5rem;
       background: white;
       border-radius: .5rem;
@@ -91,7 +92,8 @@
       }
     }
   }
-  .statusFilter {
+  .statusFilter,
+  .speciesFilter {
     @extend .genderFilter;
     &__title {
       @extend .genderFilter__title;
