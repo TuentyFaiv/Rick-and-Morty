@@ -5,6 +5,7 @@ import { CHARACTER, LOCATION, EPISODE } from '@queries';
 import '@styles/pages/individualView.scss';
 
 import Character from '@containers/Character';
+import Location from '@containers/Location';
 
 const IndividualView = ({ match: { params: { id }, path } }) => {
   const [queryState, setQueryState] = useState(CHARACTER);
@@ -31,6 +32,9 @@ const IndividualView = ({ match: { params: { id }, path } }) => {
       {error && <h1>{error.message}</h1>}
       {
         (path === '/characters/:id/' && data) && <Character {...data.item} />
+      }
+      {
+        (path === '/locations/:id/' && data) && <Location {...data.item} />
       }
     </section>
   );

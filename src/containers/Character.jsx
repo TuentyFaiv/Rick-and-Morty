@@ -47,7 +47,7 @@ const Character = (props) => {
         <div className="item__content-section">
           {
             episodes && episodes.map((episode) => (
-              <CardEpisodes key={episode.id} {...episode} type="episode" />
+              <CardEpisodes key={episode.id} {...episode}/>
             ))
           }
         </div>

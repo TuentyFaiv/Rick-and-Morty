@@ -53,6 +53,7 @@ export const CHARACTERS = gql`
         }
         location {
           name
+          dimension
         }
         image
       }
@@ -74,6 +75,7 @@ export const CHARACTERS_BY_IDS = gql`
       }
       location {
         name
+        dimension
       }
       image
     }
@@ -83,14 +85,25 @@ export const CHARACTERS_BY_IDS = gql`
 export const LOCATION = gql`
   query Location($id: ID!) {
     item: location(id: $id) {
-      id
       name
       type
       dimension
       residents {
+        id
+        image
         name
+        status
+        species
+        type
+        gender
+        origin {
+          dimension
+        }
+        location {
+          name
+          dimension
+        } 
       }
-      created
     }
   }
 `;
@@ -112,7 +125,6 @@ export const LOCATIONS = gql`
         residents {
           name
         }
-        created
       }
     }
   }
@@ -128,7 +140,6 @@ export const LOCATIONS_BY_IDS = gql`
       residents {
         name
       }
-      created
     }
   }
 `;
