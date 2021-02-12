@@ -37,9 +37,32 @@ const Characters = () => {
   const handleSearchByName = () => {
     setVariables({
       ...variables,
+      page: 0,
       filter: {
         ...variables.filter,
         name: searchRef.current.value,
+      },
+    });
+  };
+
+  const handleSearchByGender = (e) => {
+    setVariables({
+      ...variables,
+      page: 0,
+      filter: {
+        ...variables.filter,
+        gender: e.target.value,
+      },
+    });
+  };
+
+  const handleDeleteGenderFilter = () => {
+    setVariables({
+      ...variables,
+      page: 0,
+      filter: {
+        ...variables.filter,
+        gender: '',
       },
     });
   };
@@ -65,6 +88,35 @@ const Characters = () => {
           value={variables.filter.name}
           onChange={handleSearchByName}
         />
+        <div className="genderFilter">
+          <p className="genderFilter__title">Gender</p>
+          <label htmlFor="female">
+            <input type="radio" name="gender" id="female" onChange={handleSearchByGender} value="female"/>
+            <p>Female</p>
+          </label>
+          <label htmlFor="male">
+            <input type="radio" name="gender" id="male" onChange={handleSearchByGender} value="male"/>
+            <p>Male</p>
+          </label>
+          <label htmlFor="genderless">
+            <input type="radio" name="gender" id="genderless" onChange={handleSearchByGender} value="genderless"/>
+            <p>Genderless</p>
+          </label>
+          <label htmlFor="unknown">
+            <input type="radio" name="gender" id="unknown" onChange={handleSearchByGender} value="unknown"/>
+            <p>Unknown</p>
+          </label>
+          <label htmlFor="withoutFilter">
+            <input
+              type="radio"
+              name="gender"
+              id="withoutFilter"
+              onChange={handleDeleteGenderFilter}
+              checked={variables.filter.gender === '' ? true : false}
+            />
+            <p>Without filter</p>
+          </label>
+        </div>
         <div className="characters__prevandnext">
           <button type="button" onClick={handlePrev} disabled={data?.characters.info?.prev ? false : true}>
             {`Prev page ${prevPage}`}

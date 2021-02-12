@@ -61,4 +61,34 @@
       }
     }
   }
+  .genderFilter {
+    display: flex;
+    width: 80%;
+    margin: 1rem 0 0;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    &__title {
+      width: 100%;
+      margin: 1rem 0;
+      font-size: 1.8rem;
+      font-weight: bolder;
+      text-align: center;
+    }
+    label {
+      display: flex;
+      height: 3rem;
+      padding: 1rem 1.5rem;
+      background: white;
+      border-radius: .5rem;
+      align-items: center;
+      justify-content: center;
+      input {
+        margin-right: 1rem;
+      }
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
 }
