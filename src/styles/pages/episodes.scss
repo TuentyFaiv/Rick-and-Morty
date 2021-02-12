@@ -1,0 +1,26 @@
+@import './characters.scss';
+
+.episodes {
+  @extend .characters;
+  &__header {
+    @extend .characters__header;
+    &-title {
+      @extend .characters__header-title;
+    }
+    &-search {
+      @extend .characters__header-search;
+    }
+  }
+  &__content {
+    @extend .characters__content;
+  }
+  &__prevandnext {
+    @extend .characters__prevandnext;
+  }
+  .filter {
+    @extend .genderFilter;
+    &__title {
+      @extend .genderFilter__title;
+    }
+  }
+}

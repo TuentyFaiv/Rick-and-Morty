@@ -1,0 +1,8 @@
+@import './cardCharacters.scss';
+
+.cardEpisodes {
+  @extend .cardCharacter;
+  &__title {
+    @extend .cardCharacter__title;
+  }
+}
