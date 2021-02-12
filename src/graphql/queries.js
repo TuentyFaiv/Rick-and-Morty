@@ -147,14 +147,25 @@ export const LOCATIONS_BY_IDS = gql`
 export const EPISODE = gql`
   query Episode($id: ID!) {
     item: episode(id: $id) {
-      id
       name
       air_date
       episode
       characters {
+        id
+        image
         name
+        status
+        species
+        type
+        gender
+        origin {
+          dimension
+        }
+        location {
+          name
+          dimension
+        }
       }
-      created
     }
   }
 `;
@@ -176,7 +187,6 @@ export const EPISODES = gql`
         characters {
           name
         }
-        created
       }
     }
   }
@@ -191,7 +201,6 @@ export const EPISODES_BY_IDS = gql`
       characters {
         name
       }
-      created
     }
   }
 `;
