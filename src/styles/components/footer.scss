@@ -1,0 +1,30 @@
+footer {
+  display: flex;
+  width: 100%;
+  min-height: calc(25vh + 6rem);
+  padding: 3rem;
+  background: linear-gradient(355deg, #00838f, #4dd0f0);
+  color: white;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  a {
+    padding: .5rem 0;
+    color: white;
+    text-decoration: none;
+    border-bottom: .3rem solid white;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  h5 {
+    font-size: 1.8rem;
+  }
+  h6 {
+    font-size: 1.6rem;
+    font-weight: normal;
+    a {
+      border-bottom: .1rem solid white;
+    }
+  }
+}
