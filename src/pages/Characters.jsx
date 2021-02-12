@@ -45,24 +45,24 @@ const Characters = () => {
     });
   };
 
-  const handleSearchByGender = (e) => {
+  const handleFilter = (e) => {
     setVariables({
       ...variables,
       page: 0,
       filter: {
         ...variables.filter,
-        gender: e.target.value,
+        [e.target.name]: e.target.value,
       },
     });
   };
 
-  const handleDeleteGenderFilter = () => {
+  const handleDeleteFilter = (e) => {
     setVariables({
       ...variables,
       page: 0,
       filter: {
         ...variables.filter,
-        gender: '',
+        [e.target.name]: '',
       },
     });
   };
@@ -91,19 +91,19 @@ const Characters = () => {
         <div className="genderFilter">
           <p className="genderFilter__title">Gender</p>
           <label htmlFor="female">
-            <input type="radio" name="gender" id="female" onChange={handleSearchByGender} value="female"/>
+            <input type="radio" name="gender" id="female" onChange={handleFilter} value="female"/>
             <p>Female</p>
           </label>
           <label htmlFor="male">
-            <input type="radio" name="gender" id="male" onChange={handleSearchByGender} value="male"/>
+            <input type="radio" name="gender" id="male" onChange={handleFilter} value="male"/>
             <p>Male</p>
           </label>
           <label htmlFor="genderless">
-            <input type="radio" name="gender" id="genderless" onChange={handleSearchByGender} value="genderless"/>
+            <input type="radio" name="gender" id="genderless" onChange={handleFilter} value="genderless"/>
             <p>Genderless</p>
           </label>
           <label htmlFor="unknown">
-            <input type="radio" name="gender" id="unknown" onChange={handleSearchByGender} value="unknown"/>
+            <input type="radio" name="gender" id="unknown" onChange={handleFilter} value="unknown"/>
             <p>Unknown</p>
           </label>
           <label htmlFor="withoutFilter">
@@ -111,8 +111,33 @@ const Characters = () => {
               type="radio"
               name="gender"
               id="withoutFilter"
-              onChange={handleDeleteGenderFilter}
+              onChange={handleDeleteFilter}
               checked={variables.filter.gender === '' ? true : false}
+            />
+            <p>Without filter</p>
+          </label>
+        </div>
+        <div className="statusFilter">
+          <p className="statusFilter__title">Status</p>
+          <label htmlFor="alive">
+            <input type="radio" name="status" id="alive" onChange={handleFilter} value="alive"/>
+            <p>Alive</p>
+          </label>
+          <label htmlFor="dead">
+            <input type="radio" name="status" id="dead" onChange={handleFilter} value="dead"/>
+            <p>Dead</p>
+          </label>
+          <label htmlFor="unknownStatus">
+            <input type="radio" name="status" id="unknownStatus" onChange={handleFilter} value="unknown"/>
+            <p>Unknown</p>
+          </label>
+          <label htmlFor="withoutFilterStatus">
+            <input
+              type="radio"
+              name="status"
+              id="withoutFilterStatus"
+              onChange={handleDeleteFilter}
+              checked={variables.filter.status === '' ? true : false}
             />
             <p>Without filter</p>
           </label>

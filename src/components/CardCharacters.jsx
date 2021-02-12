@@ -9,7 +9,7 @@ const CardCharacters = (props) => (
       <img className="cardCharacter__image" src={props.image} alt={`${props.name} | ${props.location.dimension}`}/>
       <h2 className="cardCharacter__title">
         {props.name}
-        <span>{`${props.gender} - ${props.species}`}</span>
+        <span>{`${props.gender} - ${props.species}${props.type ? ` - ${props.type}` : ''}`}</span>
       </h2>
       <p><strong>Location: </strong>{props.location.name}</p>
       <p><strong>Origin: </strong>{props.origin.dimension}</p>

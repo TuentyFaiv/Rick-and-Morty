@@ -54,28 +54,12 @@ export const CHARACTERS = gql`
         type
         gender
         origin {
-          id
-          name
-          type
           dimension
-          created
         }
         location {
-          id
           name
-          type
-          dimension
-          created
         }
         image
-        episode {
-          id
-          name
-          air_date
-          episode
-          created
-        }
-        created
       }
     }
   }
@@ -91,28 +75,12 @@ export const CHARACTERS_BY_IDS = gql`
       type
       gender
       origin {
-        id
-        name
-        type
         dimension
-        created
       }
       location {
-        id
         name
-        type
-        dimension
-        created
       }
       image
-      episode {
-        id
-        name
-        air_date
-        episode
-        created
-      }
-      created
     }
   }
 `;

@@ -91,4 +91,10 @@
       }
     }
   }
+  .statusFilter {
+    @extend .genderFilter;
+    &__title {
+      @extend .genderFilter__title;
+    }
+  }
 }
