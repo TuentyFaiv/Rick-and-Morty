@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLazyQuery } from '@apollo/client';
 import { LOCATIONS } from '@queries';
 
@@ -11,7 +11,6 @@ const Locations = () => {
     page: 1,
     filter: { name: '', type: '', dimension: '' },
   });
-  const searchRef = useRef(null);
 
   const prev = data?.locations.info?.prev;
   const prevPage = prev === null ? '' : prev === undefined ? 'Loading...' : prev;
@@ -34,13 +33,13 @@ const Locations = () => {
     window.scrollTo(0, 0);
   };
 
-  const handleSearchByName = () => {
+  const handleSearch = (e) => {
     setVariables({
       ...variables,
       page: 0,
       filter: {
         ...variables.filter,
-        name: searchRef.current.value,
+        [e.target.name]: e.target.value,
       },
     });
   };
@@ -59,12 +58,20 @@ const Locations = () => {
           }
         </h1>
         <input
-          ref={searchRef}
           type="text"
+          name="name"
           className="locations__header-search"
           placeholder="Search by name"
           value={variables.filter.name}
-          onChange={handleSearchByName}
+          onChange={handleSearch}
+        />
+        <input
+          type="text"
+          name="dimension"
+          className="locations__header-search"
+          placeholder="Search by dimension"
+          value={variables.filter.dimension}
+          onChange={handleSearch}
         />
         <div className="locations__prevandnext">
           <button type="button" onClick={handlePrev} disabled={data?.locations.info?.prev ? false : true}>
