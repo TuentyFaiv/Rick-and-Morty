@@ -11,7 +11,10 @@ const CardEpisodes = (props) => (
         <span>{props.episode}</span>
       </h2>
       <p><strong>Air date: </strong>{props.air_date}</p>
-      <p><strong>Characters: </strong>{props.characters.map(({ name }) => (`${name}, `))}</p>
+      {
+        props.characters &&
+          <p><strong>Characters: </strong>{props.characters.map(({ name }) => (`${name}, `))}</p>
+      }
     </Link>
   </article>
 );

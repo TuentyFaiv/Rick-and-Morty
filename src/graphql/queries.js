@@ -4,7 +4,7 @@ import { gql } from '@apollo/client';
 export const CHARACTER = gql`
   query Character($id: ID!) {
     item: character(id: $id) {
-      id
+      image
       name
       status
       species
@@ -15,24 +15,19 @@ export const CHARACTER = gql`
         name
         type
         dimension
-        created
       }
       location {
         id
         name
         type
         dimension
-        created
       }
-      image
-      episode {
+      episodes: episode {
         id
         name
         air_date
         episode
-        created
       }
-      created
     }
   }
 `;

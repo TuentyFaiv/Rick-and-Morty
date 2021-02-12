@@ -2,4 +2,95 @@
   width: 100%;
   min-height: 100vh;
   padding: 9rem 3rem 3rem;
+  .item {
+    &__header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      &-image {
+        width: 35rem;
+        height: 35rem;
+        border-radius: .5rem;
+        object-fit: cover;
+      }
+      &-content {
+        @extend .item__header;
+        width: calc(100% - 35rem);
+      }
+      &-title {
+        width: 100%;
+        padding: 1.5rem;
+        font-size: 2.6rem;
+        span {
+          display: block;
+          margin: .5rem 0;
+          font-size: 1.8rem;
+          font-weight: normal;
+        }
+      }
+      &-item {
+        width: 50%;
+        padding: 1.5rem;
+        h2 {
+          margin-bottom: 1rem;
+          font-size: 2.2rem;
+        }
+        h3 {
+          font-size: 1.8rem;
+          span {
+            font-size: 1.8rem;
+            font-weight: normal;
+            &::before {
+              content: " - ";
+              font-size: 1.8rem;
+              font-weight: normal;
+            }
+          }
+        }
+        article {
+          padding: 1rem;
+          background-color: white;
+          border-radius: .5rem;
+          transition: background-color .5s ease;
+          &:hover {
+            background-color: #80DEEA;
+          }
+        }
+        a {
+          color: black;
+          text-decoration: none;
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    &__content {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      h4 {
+        width: 100%;
+        margin-bottom:  2rem;
+        font-size: 2.6rem;
+        text-align: center;
+      }
+      &-section {
+        display: grid;
+        width: 100%;
+        grid-template-columns: repeat(auto-fit, minmax(30rem,1fr));
+        grid-gap: 2rem;
+        place-items: center;
+        &::-webkit-scrollbar {
+          background: transparent;
+        }
+        &::-webkit-scrollbar-thumb {
+          background: transparent;
+        }
+      }
+    }
+  }
 }
