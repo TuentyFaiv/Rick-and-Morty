@@ -1,8 +1,34 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLazyQuery } from '@apollo/client';
+import { CHARACTER, LOCATION, EPISODE } from '@queries';
 
-const IndividualView = () => {
+import '@styles/pages/individualView.scss';
+
+const IndividualView = ({ match: { params: { id }, path } }) => {
+  const [queryState, setQueryState] = useState(CHARACTER);
+  const [query, { loading, data, error }] = useLazyQuery(queryState);
+
+  useEffect(() => {
+    switch (path) {
+      case '/characters/:id/':
+        setQueryState(CHARACTER);
+        break;
+      case '/locations/:id/':
+        setQueryState(LOCATION);
+        break;
+      case '/episodes/:id/':
+        setQueryState(EPISODE);
+        break;
+    }
+    query({ variables: { id } });
+  }, [path, id, queryState]);
+
   return (
-    <h1>Individual view</h1>
+    <section className="individualPage">
+      {loading && <h1>Loading...</h1>}
+      {error && <h1>{error.message}</h1>}
+      <h1>Individual view</h1>
+    </section>
   );
 };
 

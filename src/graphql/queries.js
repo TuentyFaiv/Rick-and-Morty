@@ -3,7 +3,7 @@ import { gql } from '@apollo/client';
 
 export const CHARACTER = gql`
   query Character($id: ID!) {
-    character(id: $id) {
+    item: character(id: $id) {
       id
       name
       status
@@ -87,7 +87,7 @@ export const CHARACTERS_BY_IDS = gql`
 
 export const LOCATION = gql`
   query Location($id: ID!) {
-    location(id: $id) {
+    item: location(id: $id) {
       id
       name
       type
@@ -140,7 +140,7 @@ export const LOCATIONS_BY_IDS = gql`
 
 export const EPISODE = gql`
   query Episode($id: ID!) {
-    episode {
+    item: episode(id: $id) {
       id
       name
       air_date
