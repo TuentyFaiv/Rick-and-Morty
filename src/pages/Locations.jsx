@@ -44,6 +44,17 @@ const Locations = () => {
     });
   };
 
+  const handleDeleteFilter = (e) => {
+    setVariables({
+      ...variables,
+      page: 0,
+      filter: {
+        ...variables.filter,
+        [e.target.name]: '',
+      },
+    });
+  };
+
   useEffect(() => {
     query({ variables });
   }, [variables]);
@@ -73,6 +84,27 @@ const Locations = () => {
           value={variables.filter.dimension}
           onChange={handleSearch}
         />
+        <div className="filter">
+          <p className="filter__title">Type</p>
+          <label htmlFor="planet">
+            <input type="radio" name="type" id="planet" onChange={handleSearch} value="planet" />
+            <p>planet</p>
+          </label>
+          <label htmlFor="unknown">
+            <input type="radio" name="type" id="unknown" onChange={handleSearch} value="unknown" />
+            <p>Unknown</p>
+          </label>
+          <label htmlFor="withoutFilter">
+            <input
+              type="radio"
+              name="type"
+              id="withoutFilter"
+              onChange={handleDeleteFilter}
+              checked={variables.filter.type === '' ? true : false}
+            />
+            <p>Without filter</p>
+          </label>
+        </div>
         <div className="locations__prevandnext">
           <button type="button" onClick={handlePrev} disabled={data?.locations.info?.prev ? false : true}>
             {`Prev page ${prevPage}`}

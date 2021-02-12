@@ -17,4 +17,10 @@
   &__prevandnext {
     @extend .characters__prevandnext;
   }
+  .filter {
+    @extend .genderFilter;
+    &__title {
+      @extend .genderFilter__title;
+    }
+  }
 }
