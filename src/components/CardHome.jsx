@@ -14,6 +14,7 @@ const CardHome = (props) => (
       <h3 className="card__title">
         {props.name}
         {props.type === 'character' && <span>{`${props.gender} - ${props.species}`}</span>}
+        {props.type === 'location' && <span>{props.type}</span>}
       </h3>
       {
         props.type === 'episode' && (
@@ -25,7 +26,6 @@ const CardHome = (props) => (
       }
       {props.type === 'location' && (
           <>
-            <p><strong>Type: </strong>{props.type}</p>
             <p><strong>Location: </strong>{props.dimension}</p>
             <p><strong>Residens: </strong>{props.residents.map((resident) => (`${resident.name}, `))}</p>
           </>

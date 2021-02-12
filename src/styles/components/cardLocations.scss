@@ -1,0 +1,8 @@
+@import './cardCharacters.scss';
+
+.cardLocations {
+  @extend .cardCharacter;
+  &__title {
+    @extend .cardCharacter__title;
+  }
+}
