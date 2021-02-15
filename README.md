@@ -1,7 +1,7 @@
 # Rick-and-Morty
 A simple project using the rick and morty api.
 
-This project was made with React and Sass as CSS preprocesor.
+This project was made with React, GraphQL and Sass as CSS preprocesor.
 
 Link: [https://rick-and-morty.tuentyfaiv.vercel.app/](https://rick-and-morty.tuentyfaiv.vercel.app/)
 
