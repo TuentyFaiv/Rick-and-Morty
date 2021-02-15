@@ -1,0 +1,26 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "use": "@vercel/static-build",
+      "src": "package.json"
+    }
+  ],
+  "routes": [
+    {
+      "src": "(.*).css",
+      "dest": "/$1.css"
+    },
+    {
+      "src": "(.*).js",
+      "dest": "/$1.js"
+    },
+    {
+      "src": "/.*",
+      "dest": "/index.html",
+      "headers": {
+        "X-Robots-Tag": "all"
+      }
+    }
+  ]
+}
